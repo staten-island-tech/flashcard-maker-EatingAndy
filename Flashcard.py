@@ -12,26 +12,25 @@ print(Kammy.sell('capybaras')) """
 
 import json
 
-class role:
-    Tquestion = input()
-    Tanswer = input()
+class Role:
     def __init__(self, question, answer):
         self.question = question
         self.answer = answer
     def Q(self, item):
-        self.question.add(item)
+        self.question.append(item)
     def A(self, item):
-        self.answer.add(item)
+        self.answer.append(item)
     def to_dict(self):
         return {"Question": self.question, "Answer": self.answer}
-    new_question = role(Tquestion, Tanswer)
-    try:
-        with open("Flashcard.json", "r") as file:
-            Questions = json.load(file)
-    except FileNotFoundError:
-        Questions = []
-    Questions.data.append(new_question.to_dict())
 Tquestion = input()
 Tanswer = input()
-teacher = role(Tquestion, Tanswer)
-student = role(Tquestion, input())
+teacher = Role(Tquestion, Tanswer)
+student = Role(Tquestion, input())
+try:
+    with open("Flashcard.json", "r") as file:
+        Questions = json.load(file)
+except FileNotFoundError:
+    Questions = []
+Questions.append(teacher.to_dict())
+with open("Flashcard.json", "w") as file:
+    json.dump(Questions, file, indent=4)
