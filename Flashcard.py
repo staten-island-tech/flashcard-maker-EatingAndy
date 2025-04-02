@@ -16,6 +16,21 @@ class Role:
     def __init__(self, question, answer):
         self.question = question
         self.answer = answer
+    def display_question(self):
+        return f"user: {self.question}, answer: {self.answer}"
+class student(Role):
+    def __init__(self, question, answer):
+        super().__init__(question, answer)
+    def answer_question(self):
+        
+
+
+
+
+
+
+
+
     def Q(self, item):
         self.question.append(item)
     def A(self, item):
