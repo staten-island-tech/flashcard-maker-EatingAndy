@@ -58,7 +58,7 @@ elif role == "student":
             print("Wrong")
             Topstreak = Streak 
             Streak = 0
-        if input() == "I rage quit":
+        elif student.answer == "I rage quit":
             print(f"Your total is {Total} and your highest streak was {Topstreak}.")
 
 else:
